@@ -84,15 +84,16 @@ public class addNewProduct extends BaseTest  {
         // thêm video link
 
         driver.findElement(By.xpath("//input[@placeholder='Video Link']")).sendKeys("cms.anhtester.com/login");
-        driver.findElement(By.xpath("")).sendKeys("");
-        // thêm attribute
+
+        sleep(2);
+//         thêm attribute
         driver.findElement(By.xpath("//button[@class='btn dropdown-toggle btn-light bs-placeholder']")).click();
         driver.findElement(By.xpath("//div[@class='dropdown-menu show']//input[@aria-label='Search']")).sendKeys("size");
         driver.findElement(By.xpath("//div[@class='dropdown-menu show']//input[@aria-label='Search']")).sendKeys(Keys.ENTER);
 
-        driver.findElement(By.xpath("//button[@class='btn dropdown-toggle bs-placeholder btn-light']")).click();
-        driver.findElement(By.xpath("//div[@class='dropdown-menu show']//input[@aria-label='Search']")).sendKeys("22");
-        driver.findElement(By.xpath("//div[@class='dropdown-menu show']//input[@aria-label='Search']")).sendKeys(Keys.ENTER);
+//        driver.findElement(By.xpath("//button[@class='btn dropdown-toggle bs-placeholder btn-light']")).click();
+//        driver.findElement(By.xpath("//div[@class='dropdown-menu show']//input[@aria-label='Search']")).sendKeys("22");
+//        driver.findElement(By.xpath("//div[@class='dropdown-menu show']//input[@aria-label='Search']")).sendKeys(Keys.ENTER);
 
          // thêm unit price
         driver.findElement(By.xpath("//input[@placeholder='Unit price']")).clear();
@@ -116,12 +117,13 @@ public class addNewProduct extends BaseTest  {
         driver.findElement(By.xpath("//textarea[@name='meta_description']")).sendKeys("123456789");
         // thêm meta image
         driver.findElement(By.xpath("//label[normalize-space()='Meta Image']/following-sibling::div")).click();
-        driver.findElement(By.xpath("(//div[@aria-modal='true']//div[@role='document']//div//div//div//div//div//div//div//div//input[@placeholder='Search your files']")).sendKeys("car");
+        driver.findElement(By.xpath("//input[@placeholder='Search your files']")).sendKeys("car");
         sleep(2);
         driver.findElement(By.xpath("//div[@aria-modal='true']//div[@role='document']//div//div//div//div//div//div[@aria-hidden='false']//div//div[@title='car.jpg']//div//img")).click();
         driver.findElement(By.xpath("//div[@aria-modal='true']//div[@role='document']//div//div//button[@type='button'][normalize-space()='Add Files']")).click();
-        sleep(2);
 
+        driver.findElement(By.xpath("//button[normalize-space()='Save & Publish']")).click();
+        sleep(2);
         // KIỂM TRA KHI ADD THÀNH CÔNG
         Assert.assertTrue(driver.findElement(By.xpath("//span[normalize-space()]='Product has been inserted successfully']")).isDisplayed(), "fail");
         // search lại tên
@@ -130,8 +132,6 @@ public class addNewProduct extends BaseTest  {
         sleep(2);
         //Kiểm tra sản phẩm có xuất hiện không
         Assert.assertTrue(driver.findElement(By.xpath("//td[normalize-space()]='truongtv23']")).isDisplayed(), "fail");
-
-
 
 
 
